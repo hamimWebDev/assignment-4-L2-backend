@@ -14,7 +14,7 @@ const ProductSchema = zod_1.z.object({
     brand: zod_1.z.string(),
     shopArea: zod_1.z.string(),
     policy: zod_1.z.string(),
-    PolicyDays: zod_1.z.number(),
+    policyDays: zod_1.z.number(),
     contact_whatsapp: zod_1.z.string(),
     contact_phone: zod_1.z.string(),
     isDeleted: zod_1.z.boolean().optional(),
