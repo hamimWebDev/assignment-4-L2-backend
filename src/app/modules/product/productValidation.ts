@@ -12,7 +12,7 @@ const ProductSchema = z.object({
   brand: z.string(),
   shopArea: z.string(),
   policy: z.string(),
-  PolicyDays: z.number(),
+  policyDays: z.number(),
   contact_whatsapp: z.string(),
   contact_phone: z.string(),
   isDeleted: z.boolean().optional(),
