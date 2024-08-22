@@ -23,6 +23,7 @@ const updateACategoryIntoDB = catchAsync(async (req, res) => {
   const { id } = req.params;
 
   const result = await CategoryServices.updateACategoryIntoDB(id, req.body);
+  console.log(result);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

@@ -32,6 +32,7 @@ const createCategory = (0, CatchAsync_1.catchAsync)((req, res) => __awaiter(void
 const updateACategoryIntoDB = (0, CatchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const result = yield categoryService_1.CategoryServices.updateACategoryIntoDB(id, req.body);
+    console.log(result);
     (0, SendResponse_1.sendResponse)(res, {
         statusCode: http_status_1.default.OK,
         success: true,

@@ -7,7 +7,12 @@ import cors from "cors";
 export const app = express();
 
 //parsers
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin: "https://assignment-4-l2-frontend.netlify.app",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
 
