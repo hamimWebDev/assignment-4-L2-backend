@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: [
       "https://assignment-4-l2-frontend.netlify.app",
-      "http://localhost:5173/",
+      "http://localhost:5173",
     ],
     credentials: true,
   }),

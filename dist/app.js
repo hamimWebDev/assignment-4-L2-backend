@@ -12,7 +12,10 @@ const cors_1 = __importDefault(require("cors"));
 exports.app = (0, express_1.default)();
 //parsers
 exports.app.use((0, cors_1.default)({
-    origin: "https://assignment-4-l2-frontend.netlify.app",
+    origin: [
+        "https://assignment-4-l2-frontend.netlify.app",
+        "http://localhost:5173",
+    ],
     credentials: true,
 }));
 exports.app.use(express_1.default.json());
