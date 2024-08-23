@@ -9,7 +9,10 @@ export const app = express();
 //parsers
 app.use(
   cors({
-    origin: "https://assignment-4-l2-frontend.netlify.app",
+    origin: [
+      "https://assignment-4-l2-frontend.netlify.app",
+      "http://localhost:5173/",
+    ],
     credentials: true,
   }),
 );
