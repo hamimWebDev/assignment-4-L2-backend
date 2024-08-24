@@ -63,9 +63,29 @@ const getAllProductFromDb = (0, CatchAsync_1.catchAsync)((req, res) => __awaiter
         data: result,
     });
 }));
+const MinusQuantityInStock = (0, CatchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const { quantity } = req.body;
+    if (typeof quantity !== "number" || quantity <= 0) {
+        return res.status(http_status_1.default.BAD_REQUEST).json({
+            success: false,
+            message: "Invalid quantity provided",
+        });
+    }
+    const result = yield productService_1.ProductServices.updateAProductIntoDB(id, {
+        $inc: { inStock: -quantity },
+    });
+    (0, SendResponse_1.sendResponse)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Product stock quantity is updated successfully",
+        data: result,
+    });
+}));
 exports.ProductControllers = {
     createProduct,
     updateAProductIntoDB,
     deleteProductFromDB,
     getAllProductFromDb,
+    MinusQuantityInStock,
 };

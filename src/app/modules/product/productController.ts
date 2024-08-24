@@ -64,9 +64,32 @@ const getAllProductFromDb = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const MinusQuantityInStock = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { quantity } = req.body as { quantity: number };
+
+  if (typeof quantity !== "number" || quantity <= 0) {
+    return res.status(httpStatus.BAD_REQUEST).json({
+      success: false,
+      message: "Invalid quantity provided",
+    });
+  }
+
+  const result = await ProductServices.updateAProductIntoDB(id, {
+    $inc: { inStock: -quantity },
+  } as Partial<TProduct>);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Product stock quantity is updated successfully",
+    data: result,
+  });
+});
+
 export const ProductControllers = {
   createProduct,
   updateAProductIntoDB,
   deleteProductFromDB,
   getAllProductFromDb,
+  MinusQuantityInStock,
 };
